@@ -194,11 +194,6 @@
             "description": "The full HTML content to be sent.",
             "example": "<p>Thanks for signing up!</p>"
           },
-          "html": {
-            "type": "string",
-            "description": "The full HTML content to be sent.",
-            "example": "<p>Thanks for signing up!</p>"
-          },
           "subject": {
             "type": "string",
             "description": "The message subject.",
