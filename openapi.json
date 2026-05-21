@@ -188,9 +188,12 @@
       "Message": {
         "type": "object",
         "required": ["from_email", "to"],
-            "properties": {
-              "important": { "type": "boolean", "description": "Whether this message is high priority.", "default": false 
-              },
+    "properties": {
+          "html": {
+            "type": "string",
+            "description": "The full HTML content to be sent.",
+            "example": "<p>Thanks for signing up!</p>"
+          },
           "html": {
             "type": "string",
             "description": "The full HTML content to be sent.",
