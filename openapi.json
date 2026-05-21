@@ -189,6 +189,8 @@
         "type": "object",
         "required": ["from_email", "to"],
             "properties": {
+              "important": { "type": "boolean", "description": "Whether this message is high priority.", "default": false 
+              },
           "html": {
             "type": "string",
             "description": "The full HTML content to be sent.",
