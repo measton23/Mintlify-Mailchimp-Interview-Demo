@@ -1,0 +1,89 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "MailChimp Transactional",
+  "colors": {
+    "primary": "#007C89",
+    "light": "#2DB6C2",
+    "dark": "#004E58"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "authentication"
+            ]
+          },
+          {
+            "group": "Essentials",
+            "pages": [
+              "essentials/sending",
+              "essentials/webhooks",
+              "essentials/versioning",
+              "essentials/changelog"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "API Documentation",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Messages",
+            "openapi": "/openapi.json"
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "API Status",
+          "href": "https://status.mailchimp.com",
+          "icon": "signal"
+        },
+        {
+          "anchor": "Changelog",
+          "href": "https://mailchimp.com/developer/transactional/release-notes/",
+          "icon": "list"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "https://mailchimp.com/contact/"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://login.mailchimp.com"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/mailchimp",
+      "github": "https://github.com/mailchimp"
+    }
+  }
+}

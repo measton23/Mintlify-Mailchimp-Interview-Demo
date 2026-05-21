@@ -1,0 +1,45 @@
+---
+title: "API Versioning"
+description: "How API versions map to our release cadence."
+---
+
+## Where we are
+
+The product shipped its first minor version, **v1.1**, in October — the first
+version update in the product's history. We're now on **v1.3**, with **three to
+four additional versioned releases planned before the end of the fiscal year**.
+
+That cadence is a major shift from the past, and it's exactly why docs need to
+maintain themselves rather than depend on manual updates per release.
+
+## Versioning strategy
+
+The API is versioned in the URL path (`/api/2.0/`). New versions are introduced
+for breaking changes only; additive changes ship within the current version.
+
+## How docs keep pace
+
+<Steps>
+  <Step title="Reference regenerates from the spec">
+    The interactive API reference is generated directly from the OpenAPI spec.
+    Update the spec, and the reference updates — no manual page edits per release.
+  </Step>
+  <Step title="Changelog stays current">
+    Each release produces a [changelog](/essentials/changelog) entry automatically,
+    so the gap between shipped changes and documented changes closes.
+  </Step>
+  <Step title="Versions managed by branch">
+    Doc versions map to Git branches, so the same workflow engineers already use
+    for code carries the docs — staging to production, no separate process.
+  </Step>
+  <Step title="Deprecations flagged">
+    Deprecated endpoints are marked in the reference and supported for one full
+    release cycle before removal.
+  </Step>
+</Steps>
+
+## Supporting multiple versions
+
+With several versions live at once, navigation can reference more than one
+OpenAPI spec — for example v1 and v1.3 side by side — so existing users on older
+versions still find accurate docs while new users see the latest.

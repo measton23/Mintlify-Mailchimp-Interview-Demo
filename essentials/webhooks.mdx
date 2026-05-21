@@ -1,0 +1,31 @@
+---
+title: "Webhooks"
+description: "Receive delivery, open, click, and bounce events in real time."
+---
+
+## Overview
+
+Webhooks push events to your server as they happen, so you don't have to poll for
+status. Configure an endpoint under **Settings → Webhooks**.
+
+## Event types
+
+| Event       | Description                                    |
+| ----------- | ---------------------------------------------- |
+| `send`      | A message was accepted for delivery.           |
+| `deferral`  | Delivery was temporarily deferred.             |
+| `hard_bounce` | The recipient address is permanently invalid. |
+| `soft_bounce` | A temporary delivery failure occurred.       |
+| `open`      | The recipient opened the message.              |
+| `click`     | The recipient clicked a tracked link.          |
+| `spam`      | The recipient marked the message as spam.      |
+| `unsub`     | The recipient unsubscribed.                    |
+
+## Verifying signatures
+
+Each request includes a signature header. Compute an HMAC-SHA1 of the request body
+using your webhook key and compare it to the header to confirm authenticity.
+
+<Warning>
+  Always verify signatures before trusting webhook payloads.
+</Warning>

@@ -1,0 +1,46 @@
+---
+title: "Authentication"
+description: "How to authenticate requests to the Transactional API."
+---
+
+## API keys
+
+All requests authenticate with a Transactional API key. You can pass it two ways:
+
+<Tabs>
+  <Tab title="Request body">
+    Include the key as a top-level `key` field in the JSON body of every request.
+    ```json
+    { "key": "YOUR_API_KEY", "message": { } }
+    ```
+  </Tab>
+  <Tab title="Authorization header">
+    Send the key in the `Authorization` header.
+    ```bash
+    -H "Authorization: YOUR_API_KEY"
+    ```
+  </Tab>
+</Tabs>
+
+<Warning>
+  Never expose your API key in client-side code. Make all calls from your backend.
+</Warning>
+
+## Managing keys
+
+Create, label, and revoke keys from **Settings → API keys** in your dashboard. We
+recommend a separate key per environment (production, staging) so you can rotate
+one without affecting the others.
+
+## Errors
+
+An invalid key returns a `401` with a structured error body:
+
+```json
+{
+  "status": "error",
+  "code": -1,
+  "name": "Invalid_Key",
+  "message": "Invalid API key"
+}
+```

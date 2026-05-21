@@ -1,0 +1,33 @@
+---
+title: "Sending Email"
+description: "Patterns for reliable, high-volume transactional sending."
+---
+
+## Synchronous vs. async
+
+By default, sends are synchronous and return a per-recipient status immediately.
+For bulk workloads, set `"async": true` so the API queues messages and returns
+quickly — your app stays responsive under load.
+
+<CardGroup cols={2}>
+  <Card title="Synchronous" icon="bolt">
+    Best for low-volume, real-time sends where you want an immediate result.
+  </Card>
+  <Card title="Async" icon="layer-group">
+    Best for bulk sends. Track outcomes via webhooks or the message info endpoint.
+  </Card>
+</CardGroup>
+
+## Scheduling
+
+Pass `send_at` (UTC, formatted `YYYY-MM-DD HH:MM:SS`) to schedule delivery for a
+future time.
+
+## Tracking
+
+Opens and clicks are tracked by default. Disable per message with `track_opens`
+and `track_clicks`. Use `tags` to group related messages for reporting.
+
+<Tip>
+  Tags beginning with an underscore are reserved for internal use.
+</Tip>

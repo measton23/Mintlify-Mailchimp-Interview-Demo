@@ -1,0 +1,107 @@
+---
+title: "Quickstart"
+description: "Send your first transactional message in five minutes."
+---
+
+## 1. Get your API key
+
+Generate a key from your dashboard under **Settings → API keys**. Treat it like a
+password — never commit it to source control.
+
+<Info>
+  Already have a key? Skip ahead to [step 3](#3-send-a-message).
+</Info>
+
+## 2. Install (optional)
+
+Use a client library, or call the REST endpoint directly with any HTTP client.
+
+<CodeGroup>
+
+```bash cURL
+# No install needed — just call the endpoint
+```
+
+```bash Node.js
+npm install @mailchimp/mailchimp_transactional
+```
+
+```bash Python
+pip install mailchimp-transactional
+```
+
+</CodeGroup>
+
+## 3. Send a message
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://mandrillapp.com/api/2.0/messages/send \
+  -H "Content-Type: application/json" \
+  -d '{
+    "key": "YOUR_API_KEY",
+    "message": {
+      "from_email": "hello@example.com",
+      "subject": "Welcome aboard",
+      "html": "<p>Thanks for signing up!</p>",
+      "to": [{ "email": "recipient@example.com", "type": "to" }]
+    }
+  }'
+```
+
+```javascript Node.js
+import mailchimp from "@mailchimp/mailchimp_transactional";
+
+const client = mailchimp("YOUR_API_KEY");
+
+const response = await client.messages.send({
+  message: {
+    from_email: "hello@example.com",
+    subject: "Welcome aboard",
+    html: "<p>Thanks for signing up!</p>",
+    to: [{ email: "recipient@example.com", type: "to" }],
+  },
+});
+
+console.log(response);
+```
+
+```python Python
+import mailchimp_transactional as MailchimpTransactional
+
+client = MailchimpTransactional.Client("YOUR_API_KEY")
+
+response = client.messages.send({
+    "message": {
+        "from_email": "hello@example.com",
+        "subject": "Welcome aboard",
+        "html": "<p>Thanks for signing up!</p>",
+        "to": [{"email": "recipient@example.com", "type": "to"}],
+    }
+})
+
+print(response)
+```
+
+</CodeGroup>
+
+## 4. Confirm delivery
+
+Every send returns a per-recipient status array. A `sent` or `queued` status means
+the message was accepted.
+
+```json Response
+[
+  {
+    "email": "recipient@example.com",
+    "status": "sent",
+    "reject_reason": null,
+    "_id": "abc123def456"
+  }
+]
+```
+
+<Check>
+  That's it. Next, set up [webhooks](/essentials/webhooks) to track what happens after delivery.
+</Check>
