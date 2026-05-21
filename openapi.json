@@ -188,15 +188,11 @@
       "Message": {
         "type": "object",
         "required": ["from_email", "to"],
-          "properties": {
+            "properties": {
           "html": {
             "type": "string",
             "description": "The full HTML content to be sent.",
             "example": "<p>Thanks for signing up!</p>"
-          },
-          "text": {
-            "type": "string",
-            "description": "Optional full text content to be sent."
           },
           "subject": {
             "type": "string",
